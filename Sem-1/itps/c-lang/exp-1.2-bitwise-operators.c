@@ -8,10 +8,10 @@ int main()
 
     int  a,b,c;
 
-        printf("Enter a your first number: ");
+        printf("Enter your first number: ");
         scanf("%d", &a);
     
-        printf("Enter a your second number: ");
+        printf("Enter your second number: ");
         scanf("%d", &b);
     
         printf("Bitwise AND is = %d\n", a&b);
