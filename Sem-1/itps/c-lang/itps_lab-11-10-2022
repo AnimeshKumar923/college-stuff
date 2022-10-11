@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() 
+{
+    
+    int a,b,c,d,e;
+    int product=1;
+    
+    printf("Enter a number:");
+    scanf("%d", &a);
+    
+    while(a>1)
+    {
+    product=product*a;
+   
+    a--;
+    }
+    
+     printf("factorial is: %d", product);
+     
+    return 0;
+}
