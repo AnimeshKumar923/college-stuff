@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+ 
+   int a, b, c;
+   int sum=0;
+
+printf("enter first number:");
+scanf("%d", &a);
+
+printf("enter second number:");
+scanf("%d", &b);
+   
+   for(c=a; c<=b; c++)
+   {
+       if(c%5==0)
+       {
+           sum=sum+c;
+           
+       }
+   
+   }
+   
+    printf("the sum is: %d \n", sum);
+
+    return 0;
+}
