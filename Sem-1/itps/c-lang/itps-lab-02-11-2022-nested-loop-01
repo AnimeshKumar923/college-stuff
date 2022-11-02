@@ -16,3 +16,26 @@ int main(){
     
 return 0;
 }
+
+
+
+
+
+// nested loop--> used in array
+#include <stdio.h>
+
+int main(){
+
+    int i,j,n,p=0,r,temp;
+    
+    for(i=1; i<=4; i++) //this loop for row
+    {
+        for(j=1; j<=i; j++) //this loop for column
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    
+return 0;
+}
