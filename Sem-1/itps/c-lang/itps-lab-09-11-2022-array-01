@@ -55,3 +55,32 @@ int main() {
 
     return 0;
 }
+
+
+
+
+// to find the maximum value in the array
+
+#include <stdio.h>
+
+int main() {
+    
+    int i, avg,max=0;
+    int arr[5];
+    
+    for(i=0; i<5; i++)
+    {
+        printf("Enter a number: ");
+        scanf("%d", &arr[i]);
+    }
+    
+    for(i=0; i<5; i++)
+    {
+        if(arr[i]>max)
+            max=arr[i];
+    }
+    
+    printf("the maximum in array is: %d", max);
+    
+    return 0;
+}
