@@ -14,7 +14,7 @@
             for(int j = i + 1; j < length; j++) 
             {  
                 if(arr[i] == arr[j])  
-                    printf("%d\n", arr[j]);  
+                    printf("%d\n", arr[j]);
             }  
         }  
         return 0;  
