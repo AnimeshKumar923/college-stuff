@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main()
+{
+	int i,j,max,a[15],n,temp;
+	
+	printf("Enter size of array; ");
+	scanf("%d", &n);
+	
+	printf("enter %d elements of array", n);
+	
+	for (i=0; i<n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	
+	for (i=0; i<n; i++)
+	{
+		max=i;
+		
+		for (j=i+1; j<n; j++)
+		{
+			if (a[max]<a[j])
+			{
+				max=j;
+			}
+			
+			if (max!=i)
+			{
+				temp=a[j-i];
+				a[j-i]=a[max];
+				a[max]=temp;
+			}
+		}
+		
+		for (i=0; i<n; i++)
+		{
+			printf("%d", a[i]);
+		}
+	}
+	
+	return 0;
+}
