@@ -1,6 +1,12 @@
 #include <stdio.h>
 
-int main()
+int main() 
+/*multi-line 
+
+
+comments*/
+
+// single line comment
 {
     int a,b;
     
