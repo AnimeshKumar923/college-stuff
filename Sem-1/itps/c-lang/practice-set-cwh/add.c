@@ -1,10 +1,15 @@
+/*Author: Animesh Kumar
+Purpose: Understanding operators in C
+Date: 17-11-2022
+*/
+
 #include <stdio.h>
 
 int main() 
-/*multi-line 
 
-
-comments*/
+/*this is
+a multi-line 
+comment*/
 
 // single line comment
 {
