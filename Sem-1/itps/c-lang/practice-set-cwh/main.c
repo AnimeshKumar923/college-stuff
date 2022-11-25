@@ -1,5 +1,5 @@
 /*Author: Animesh Kumar
-Purpose: Updated main.c for using it as template.
+Purpose: 
 Date: 19-11-2022
 */
 
