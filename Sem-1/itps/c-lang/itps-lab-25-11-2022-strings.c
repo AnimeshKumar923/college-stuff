@@ -11,16 +11,16 @@ int main()
     char name[50];
 
     printf("enter your name: ");
-    scanf("%[^\n]%*c", &name);
-    
-    int i=0;
+    gets(name);
 
-    while (name[i]!='\0')
+    int i = 0;
+
+    while (name[i] != '\0')
     {
         i++;
-}
-    
-    printf("string length= %d",i);
+    }
+
+    printf("string length= %d\n", i);
 
     return 0;
 }
