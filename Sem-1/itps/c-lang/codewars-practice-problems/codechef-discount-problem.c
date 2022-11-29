@@ -15,8 +15,8 @@ int main()
 
     while (t-- > 0)
     {
-        scanf("%d", &x);
+        scanf("%d\n", &x);
         amount=100-x;
-        printf("%d", amount);
+        printf("%d\n", amount);
     }
 }
