@@ -1,3 +1,5 @@
+/*code upload by Adil Ansari*/
+
 #include <stdio.h>
 
 int sum(int p, int q)
