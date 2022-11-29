@@ -1,33 +1,43 @@
 /*Author: Animesh Kumar
 Purpose: Learning functions (itps-lab)
 Date: 29-11-2022
-Status: 
+Status:
 */
 
-#include <stdio.h>
+// program-01
 
+
+
+
+#include <stdio.h>
 
 int sum(int p, int q)
 {
     int r;
-    r=p+q;
+    r = p + q;
+    
     return r;
 }
-
 
 int main()
 {
 
-    int a,b,c;
+    int a, b, c;
 
     printf("enter value of a: ");
     scanf("%d", &a);
     printf("enter value of b: ");
     scanf("%d", &b);
 
-    c=sum(a,b);
+    c = sum(a, b);
 
     printf("sum is = %d", c);
-        
-    
+
+    return 0;
 }
+
+
+
+
+// program-02
+
