@@ -1,10 +1,11 @@
 /*Author: Animesh Kumar
 Purpose: Learning functions (itps-lab)
 Date: 29-11-2022
-Status:
+Status: Successfully executed the task given
 */
 
 // program-01
+// to create a function to return sum of two numbers
 
 
 
