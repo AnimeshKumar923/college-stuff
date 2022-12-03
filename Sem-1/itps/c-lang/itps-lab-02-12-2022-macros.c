@@ -1,6 +1,8 @@
 #include <stdio.h>
 #define area a *b
 
+// a simple macro taught in c-lab
+
 int main()
 {
     int a, b;
