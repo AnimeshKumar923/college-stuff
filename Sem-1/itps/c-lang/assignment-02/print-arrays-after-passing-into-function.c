@@ -1,7 +1,6 @@
 // Print all element of an array after passing it into a function.
 
 #include <stdio.h>
-#include <string.h>
 
 void printarray(int arr[]);
 
