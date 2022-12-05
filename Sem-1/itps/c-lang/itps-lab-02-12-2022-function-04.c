@@ -14,6 +14,7 @@ void swap(int, int);
 int main()
 {
     int a, b;
+    printf("enter two numbers, a and b: ");
     scanf("%d%d", &a, &b);
     swap(a, b);
     printf("value of a is %d and of b is %d\n", a, b);
