@@ -9,7 +9,7 @@ int main()
     // int array[] = {1, 5, 2, 3, 9};
     int array[10];
 
-    printf("enter upto 10 nummbers: ");
+    printf("enter 10 numbers: ");
     for (int t = 0; t < 10; t++)
     {
         scanf("%d", &array[t]);
@@ -24,9 +24,10 @@ int main()
 
 void printarray(int arr[])
 {
+    printf("elements are: ");
     for (int i = 0; i < 10; i++)
     {
-        printf("elements are: ");
+
         printf("%d\n", arr[i]);
     }
 }
