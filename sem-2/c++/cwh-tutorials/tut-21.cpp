@@ -4,7 +4,7 @@ using namespace std;
 class Employee
 {
 private:
-    int a, b, c; // this can't be accessed directly but can be accessed with a function.
+    int a, b, c; // these can't be accessed directly but can be accessed with a function.
 
 public:
     int d, e;
