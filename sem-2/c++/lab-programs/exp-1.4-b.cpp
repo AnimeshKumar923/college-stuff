@@ -35,6 +35,12 @@ public:
         cout << "Height: " << height << endl;
         cout << "Weight: " << weight << endl;
     }
+
+    ~Student()
+    {
+        cout << endl
+             << "Object destroyed" << endl;
+    }
 };
 
 int main()
@@ -43,21 +49,23 @@ int main()
     string n;
     int r, h, w;
 
-    cout << "Enter name: " << endl;
+    cout << "Enter name: ";
     cin >> n;
 
-    cout << "Enter Roll.No: " << endl;
+    cout << "Enter Roll.No: ";
     cin >> r;
 
-    cout << "Enter Height: " << endl;
+    cout << "Enter Height (cms): ";
     cin >> h;
 
-    cout << "Enter Weight: " << endl;
+    cout << "Enter Weight (Kgs): ";
     cin >> w;
 
     Student x1(n, r, h, w);
 
-    x1.disp();
+    Student x2 = x1;
+
+    x2.disp();
 
     return 0;
 }
