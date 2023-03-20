@@ -6,66 +6,58 @@
 
 3) Illustrate the use of copy constructor
 
-4) Also implement the concept of destructor.   
+4) Also implement the concept of destructor.
 */
 
 #include <iostream>
 using namespace std;
 
-class Student{
+class Student
+{
     string name;
     int rollno;
-    int heigth;
-    int weigth;
-    
-    Student(string n,int r,int h,int w){
-        name=n;
-        rollno=r;
-        height=h;
-        weight=w;
+    int height;
+    int weight;
+
+public:
+    Student(string n, int r, int h, int w)
+    {
+        name = n;
+        rollno = r;
+        height = h;
+        weight = w;
     }
-    
-    void disp(){
-        cout<<"Name: "<<name<<endl;
-        cout<<"Roll.No: "<<rollno<<endl;
-        cout<<"Height: "<<height<<endl;
-        cout<<"Weight: "<<weight<<endl;
+
+    void disp()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Roll.No: " << rollno << endl;
+        cout << "Height: " << height << endl;
+        cout << "Weight: " << weight << endl;
     }
 };
 
-
-
-int main() {
+int main()
+{
 
     string n;
-    int r,h,w;
-    
-    cout<<"Enter name: "<<endl;
-    cin>>n;
-    
-    cout<<"Enter Roll.No: "<<endl;
-    cin>>r;
-    
-    cout<<"Enter Height: "<<endl;
-    cin>>h;
-    
-    cout<<"Enter Weight: "<<endl;
-    cin>>w;
-    
-    Student x1(n,r,h,w);
-    
+    int r, h, w;
+
+    cout << "Enter name: " << endl;
+    cin >> n;
+
+    cout << "Enter Roll.No: " << endl;
+    cin >> r;
+
+    cout << "Enter Height: " << endl;
+    cin >> h;
+
+    cout << "Enter Weight: " << endl;
+    cin >> w;
+
+    Student x1(n, r, h, w);
+
     x1.disp();
-    
 
     return 0;
 }
-
-
-
-
-
-  
-
-
-
-
