@@ -38,11 +38,7 @@ class teacher : public staff {
 
 public:
   void getInfo() {
-    cout << "Enter code: ";
-    cin >> code;
-
-    cout << "Enter name: ";
-    cin >> name;
+    getData();
 
     cout << "Enter subject: ";
     cin >> subject;
@@ -64,11 +60,7 @@ class officer : public staff {
 
 public:
   void getInfo() {
-    cout << "Enter code: ";
-    cin >> code;
-
-    cout << "Enter name: ";
-    cin >> name;
+    getData();
 
     cout << "Enter grade: ";
     cin >> grade;
@@ -86,11 +78,7 @@ class typist : public staff {
 
 public:
   void getInfo() {
-    cout << "Enter code: ";
-    cin >> code;
-
-    cout << "Enter name: ";
-    cin >> name;
+    getData();
 
     cout << "Enter speed (in wpm): ";
     cin >> speed;
@@ -108,13 +96,16 @@ public:
 };
 
 int main() {
-  // teacher x1;
-  // x1.getInfo();
-  // x1.dispInfo();
 
-  // officer x2;
-  // x2.getInfo();
-  // x2.dispInfo();
+  cout << "Enter option to display\nenter 1 to input teacher information\nenter 1 for input teacher information  "
+
+  teacher x1;
+  x1.getInfo();
+  x1.dispInfo();
+
+  officer x2;
+  x2.getInfo();
+  x2.dispInfo();
 
   typist x3;
   x3.getInfo();
