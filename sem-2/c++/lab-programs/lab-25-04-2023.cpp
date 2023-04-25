@@ -14,7 +14,7 @@ using namespace std;
 
 class media{
 protected:
-  string title;
+  char title[30];
   float price;
 
 public:
@@ -54,7 +54,7 @@ void book::disp(){
 
 void tape::disp(){
   cout<<"\nTitle: "<<title;
-  cout<<"\nPlay-time: "<<time<<"mins";
+  cout<<"\nPlay-time: "<<time<<" mins";
   cout<<"\nPrice: "<<price;
 }
 
@@ -71,6 +71,9 @@ int main() {
   cout<<"\nPages: ";
   cin>>pages;
 
+  media* ptr1;
+  ptr1=new book(title,price,pages);
+  
   // book b1(title,price,pages);
 
   cout<<"\nEnter Tape details: \n";
@@ -78,17 +81,13 @@ int main() {
   cin>>title;
   cout<<"\nPrice: ";
   cin>>price;
-  cout<<"\mPlay-time(mins): ";
+  cout<<"\nPlay-time(mins): ";
   cin>>time;
   // tape t1(title,price,time);
-
-
-  media* ptr1;
-  media* ptr2;
   
-  ptr1=new book(title,price,pages);
+  media* ptr2;
   ptr2=new tape(title,price,time);
-
+  
   ptr1->disp();
   ptr2->disp();
 }
