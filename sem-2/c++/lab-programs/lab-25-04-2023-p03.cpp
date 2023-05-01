@@ -1,4 +1,4 @@
-/*AIM: - WAP to create a class that will maintain the records of person with details Name and Age) and find the eldest among them. The program must use this pointer to return the result by overloading> operator among two objects.*/
+// AIM: - WAP to create a class that will maintain the records of person with details Name and Age) and find the eldest among them. The program must use this pointer to return the result by overloading> operator among two objects.*/
 
 #include <iostream>
 using namespace std;
