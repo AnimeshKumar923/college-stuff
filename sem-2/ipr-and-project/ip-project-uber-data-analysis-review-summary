@@ -1,0 +1,26 @@
+The paper explains the working of an Uber dataset of New York City.
+The dataset includes primary data on Uber pickups with details including
+the date, time of the ride as well as longitude-latitude
+information , Using the information, the paper explains the
+use of the k-means clustering algorithm on the set of data and
+classify the various parts of New York City. S ince the
+industry is booming and expected to grow shortl y. Effective
+taxi dispatching will facilitate each driver and passenger to
+reduce the wait time to seek out one another. The model is
+employed to predict the demand on points of the city
+
+
+Case study of central London area
+
+Case study of uber data in the central London.
+1) uber data analysis explores multiple levels of depth through, different visualisation of the data, from chart and graph to an tableau analysis.
+2) this analysis also provides multiple explanation for anomalies in the data and provide reasoning for increased traffic surge pricing during certain time and days.
+3) research into uber's algorithm including a study published by the most recent writer of uber algorithm, suggest that the algorithm relied solely on when demand cannot meet supply.
+II)
+
+
+Gunawardena
+1) real time big data analysis is still a challenging problem that needs to be addressed big data is more complex
+2) big data analytics is the method of analysing massive data sets to highlight trends and patterns.
+3) uber is using real time big data to perfect it's processes, from calculating Uber's pricing to finding the optimal positioning of the taxis to maximize profits.
+4) the future development will consist of popular uber locations on google map .
