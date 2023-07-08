@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Charity Donation App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .charity-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+
+      .donation-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+
+      .donation-input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Charity Donation App</h1>
+    <div class="charity-container">
+      <h2>Registered Charities</h2>
+      <div id="charities"></div>
+    </div>
+    <div class="donation-container">
+      <h2>Make a Donation</h2>
+      <label for="charity-select">Select Charity:</label>
+      <select id="charity-select"></select>
+      <input
+        type="number"
+        id="donation-amount"
+        placeholder="Donation amount (ETH)"
+        step="any"
+      />
+      <button id="donate-button">Donate</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+    <script>
+      // Contract address and ABI
+      const contractAddress = "0xA834B68cA6951A0c2722013aEc72376C8692DE19";
+      const contractABI = [
+        {
+          inputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "donor",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "charityId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "DonationMade",
+          type: "event",
+        },
+        {
+          constant: true,
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "charities",
+          outputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "totalDonations",
+              type: "uint256",
+            },
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "totalCharities",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+          ],
+          name: "registerCharity",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "charityId",
+              type: "uint256",
+            },
+          ],
+          name: "makeDonation",
+          outputs: [],
+          payable: true,
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "charityId",
+              type: "uint256",
+            },
+          ],
+          name: "getCharityDonations",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+      ]; // Contract ABI (Paste the ABI of your deployed contract here)
+
+      // Create web3 instance
+      let web3;
+
+      // Check if MetaMask is installed
+      if (typeof window.ethereum !== "undefined") {
+        web3 = new Web3(window.ethereum);
+        // Request account access if needed
+        window.ethereum.enable();
+      } else {
+        // Fallback to a local blockchain provider
+        web3 = new Web3(
+          new Web3.providers.HttpProvider("http://localhost:8545")
+        );
+      }
+
+      // Contract instance
+      const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+      // Charity select element
+      const charitySelect = document.getElementById("charity-select");
+
+      // Populate charities dropdown
+      async function populateCharities() {
+        const totalCharities = await contract.methods.totalCharities().call();
+        for (let i = 0; i < totalCharities; i++) {
+          const charity = await contract.methods.charities(i).call();
+          const option = document.createElement("option");
+          option.value = i;
+          option.text = charity.name;
+          charitySelect.appendChild(option);
+        }
+      }
+
+      // Make a donation
+      async function makeDonation() {
+        const charityId = charitySelect.value;
+        const donationAmount = document.getElementById("donation-amount").value;
+        await contract.methods
+          .makeDonation(charityId)
+          .send({ value: web3.utils.toWei(donationAmount, "ether") });
+        alert("Donation successful!");
+      }
+
+      // Event listeners
+      document
+        .getElementById("donate-button")
+        .addEventListener("click", makeDonation);
+
+      // Run on page load
+      window.addEventListener("load", async () => {
+        // Populate charities dropdown
+        await populateCharities();
+      });
+    </script>
+  </body>
+</html>
