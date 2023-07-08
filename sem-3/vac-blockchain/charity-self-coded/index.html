@@ -198,6 +198,10 @@
 
       // Charity select element
       const charitySelect = document.getElementById("charity-select");
+      // Donation amount input element
+      const donationAmountInput = document.getElementById("donation-amount");
+      // Donate button element
+      const donateButton = document.getElementById("donate-button");
 
       // Populate charities dropdown
       async function populateCharities() {
@@ -214,17 +218,29 @@
       // Make a donation
       async function makeDonation() {
         const charityId = charitySelect.value;
-        const donationAmount = document.getElementById("donation-amount").value;
-        await contract.methods
-          .makeDonation(charityId)
-          .send({ value: web3.utils.toWei(donationAmount, "ether") });
-        alert("Donation successful!");
+        const donationAmount = donationAmountInput.value;
+        const donationAmountInWei = web3.utils.toWei(donationAmount, "ether");
+
+        try {
+          const accounts = await web3.eth.getAccounts();
+          const account = accounts[0];
+
+          await contract.methods.makeDonation(charityId).send({
+            from: account,
+            value: donationAmountInWei,
+          });
+
+          alert("Donation successful!");
+        } catch (error) {
+          console.error("Error making donation:", error);
+          alert(
+            "Failed to make donation. Please check the console for details."
+          );
+        }
       }
 
-      // Event listeners
-      document
-        .getElementById("donate-button")
-        .addEventListener("click", makeDonation);
+      // Event listener for the Donate button click
+      donateButton.addEventListener("click", makeDonation);
 
       // Run on page load
       window.addEventListener("load", async () => {
