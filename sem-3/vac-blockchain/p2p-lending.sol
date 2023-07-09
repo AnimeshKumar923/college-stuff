@@ -6,7 +6,11 @@
 // Code working successfully :)
 /*
 
-===========================How to use this contract on Remix IDE========================
+
+
+
+
+=========================== How to use this contract on Remix IDE =======================
 
 1. Open the Remix IDE in your web browser by visiting https://remix.ethereum.org/.
 
@@ -24,10 +28,12 @@ In the Deploy & Run Transactions panel, select the "MyFile" contract from the dr
 
 
 
-========================How to use the functions in this contract====================
+
+
+======================= Overview of this contract ======================
 
 Once the contract is deployed, you can interact with it using the provided functions.
-1. To create a loan, locate the createLoan function in the "Deployed Contracts" section. Enter the desired loan amount in the box next to it and click on the "transact"/ "red createLoan" button. Make sure you have sufficient funds in your selected network account to cover the loan amount.
+1. To create a loan, locate the createLoan function in the "Deployed Contracts" section. Enter the desired loan amount in the box next to it and click on the "createLoan"/"transact" button. Make sure you have sufficient funds in your selected network account to cover the loan amount.
 
 2. To repay a loan, find the repayLoan function in the "Deployed Contracts" section. Enter the loan ID you want to repay and the repayment amount in the "Value" field (in wei). Then click on the "transact" button. 
 
@@ -37,13 +43,51 @@ Once the contract is deployed, you can interact with it using the provided funct
 
 4. The "totalLoans" function tells you about how many loan instances have been created at the given moment.
 
-=============================A test case on how to use it===========================
+
+
+
+
+
+============================ A test case on how to use it ===========================
+
+This test case covers the basic usage of the P2PLending contract, including creating a loan, verifying loan details, repaying the loan, and potentially refunding excess amounts. Feel free to modify the values and steps as per your testing requirements.
+
+1. Deploy the Contract:
+    - Compile the contract and deploy it to the desired network (e.g., JavaScript VM).
+
+2. Create a Loan:
+    - In the "Deployed Contracts" section, locate the createLoan function.
+    - Enter a loan amount (in wei) in the box given along with the "createLoan" function. 
+    For example, enter 1000000000000000000 wei for a loan amount of 1 ETH.
+    - Click on the "createLoan"/"transact" button to create the loan.
+    - Verify that the LoanCreated event is emitted and the loan is created.
+
+3. Verify Loan Details:
+    - Access the enquireLoans mapping in the "Deployed Contracts" section.
+    - Enter the loan ID (0 in this case) and click on the "enquireLoan"Call"/ button. 
+    [NOTE: The ID starts from 0 and corresponds to the index of the option in the options array. For example, if you want to vote for the first option, enter 0. If you want to vote for the second option, enter 1, and so on.]
+    - Verify that the borrower address, loan amount, and repayment status are correct.
+
+4. Repay the Loan:
+    - In the "Deployed Contracts" section, locate the repayLoan function.
+    - Enter the loan ID (0 in this case) and the repayment amount (in wei) in the "Value" field above the "Deploy" button. Make sure the repayment amount is equal to or greater than the loan amount.
+    - Click on the "repayLoan"/"transact" button to repay the loan.
+    - Verify that the LoanRepaid event is emitted and the loan repayment is recorded.
+    - Check the contract's balance to ensure the repayment amount has been deducted.
+
+5. Optional: Refund Excess Amount:
+    - If you want to test the refunding of excess amount, repeat step 4 but enter a repayment amount greater than the loan amount (e.g., 2 ETH).
+    - Verify that the excess amount is refunded back to the sender's address.
+    - Even if you've entered excess amount than required, only the required loan-repayment amount is deducted.
+
+=============================== DOCUMENTATION END ===============================
+
 
 
 
 */
 
-pragma solidity >=0.4.0 < 0.9.0;
+pragma solidity >=0.4.0 <0.9.0;
 
 contract P2PLending {
     struct Loan {
@@ -55,8 +99,16 @@ contract P2PLending {
     mapping(uint256 => Loan) public enquireLoans;
     uint256 public totalLoans;
 
-    event LoanCreated(uint256 indexed loanId, address indexed borrower, uint256 amount);
-    event LoanRepaid(uint256 indexed loanId, address indexed borrower, uint256 amount);
+    event LoanCreated(
+        uint256 indexed loanId,
+        address indexed borrower,
+        uint256 amount
+    );
+    event LoanRepaid(
+        uint256 indexed loanId,
+        address indexed borrower,
+        uint256 amount
+    );
 
     function createLoan(uint256 amount) external payable {
         require(amount > 0, "Invalid loan amount");
@@ -70,14 +122,22 @@ contract P2PLending {
     function repayLoan(uint256 loanId) external payable {
         require(loanId < totalLoans, "Invalid loan ID");
         require(!enquireLoans[loanId].repaid, "Loan already repaid");
-        require(msg.value >= enquireLoans[loanId].amount, "Insufficient repayment amount");
+        require(
+            msg.value >= enquireLoans[loanId].amount,
+            "Insufficient repayment amount"
+        );
 
         enquireLoans[loanId].repaid = true;
-        emit LoanRepaid(loanId, enquireLoans[loanId].borrower, enquireLoans[loanId].amount);
+        emit LoanRepaid(
+            loanId,
+            enquireLoans[loanId].borrower,
+            enquireLoans[loanId].amount
+        );
 
         if (msg.value > enquireLoans[loanId].amount) {
-            payable(msg.sender).transfer(msg.value - enquireLoans[loanId].amount);  // Refund excess amount
+            payable(msg.sender).transfer(
+                msg.value - enquireLoans[loanId].amount
+            ); // Refund excess amount
         }
     }
 }
-
