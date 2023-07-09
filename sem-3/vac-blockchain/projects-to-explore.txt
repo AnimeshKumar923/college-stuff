@@ -1,0 +1,4 @@
+- Decentralized File Storage
+- Timestamped Document Verification
+- Decentralized Autonomous Organization (DAO)
+- Subscription Payment System
