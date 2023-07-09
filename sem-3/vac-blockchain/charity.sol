@@ -34,7 +34,7 @@ NOTE: The functions usage and transactions are still a bit confusing. Document i
 
 
 */
-pragma solidity >=0.4.0 < 0.9.0;
+pragma solidity >=0.4.0 <0.9.0;
 
 contract CharityDonation {
     struct Charity {
@@ -45,7 +45,11 @@ contract CharityDonation {
     mapping(uint256 => Charity) public charities;
     uint256 public totalCharities;
 
-    event DonationMade(address indexed donor, uint256 indexed charityId, uint256 amount);
+    event DonationMade(
+        address indexed donor,
+        uint256 indexed charityId,
+        uint256 amount
+    );
 
     constructor() {
         totalCharities = 0;
@@ -62,9 +66,10 @@ contract CharityDonation {
         emit DonationMade(msg.sender, charityId, msg.value);
     }
 
-    function getCharityDonations(uint256 charityId) public view returns (uint256) {
+    function getCharityDonations(
+        uint256 charityId
+    ) public view returns (uint256) {
         require(charityId < totalCharities, "Invalid charity ID");
         return charities[charityId].totalDonations;
     }
 }
-
