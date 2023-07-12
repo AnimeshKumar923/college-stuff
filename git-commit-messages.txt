@@ -1,0 +1,38 @@
+- This is the format for commit messages that I've come up with.
+- Will update if I find some more good ways to write.
+
+===============================================================================
+
+    Commit message here
+
+    Previous changes:
+
+    - if any
+    - if any
+    - if any
+
+    Changes in this commit:
+
+    - first change
+    - second change
+
+
+===============================================================================
+
+
+Example commit message:
+
+    Create a simple contract for p2p lending app
+
+    Previous changes:
+
+    - The usage is given inside in commented form.
+    - Read and follow along for compiling, deploying and using
+    the smart contract.
+    - The documentation may be put in a separate markdown file in future.
+
+    Changes in this commit:
+
+    - Update documentation.
+    - Code syntax update due to prettier extension.
+
