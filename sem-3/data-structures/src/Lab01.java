@@ -23,7 +23,7 @@ public class Lab01 {
             System.out.print(arr[i] + " ");
         }
 
-        System.out.println("\n");
-        System.out.println(Arrays.toString(arr));
+        // System.out.println("\n");
+        // System.out.println(Arrays.toString(arr));
     }
 }

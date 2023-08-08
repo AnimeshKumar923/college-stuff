@@ -1,3 +1,8 @@
+/*
+ * Date: 2023-08-07 (YYYY-MM-DD)
+ * Program: Array element deletion
+ */
+
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -21,7 +26,10 @@ public class Lab01_03 {
         // }
 
         System.out.println("\n");
-        System.out.println(Arrays.toString(arr));
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println("\n");
 
         System.out.println("Enter position to enter new element: ");
         int position = in.nextInt();
@@ -30,6 +38,10 @@ public class Lab01_03 {
             arr[i] = arr[i + 1];
         }
         size--;
-        System.out.println("New array = " + Arrays.toString(arr));
+        System.out.println("New array:");
+        // for (int i = 0
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
 }

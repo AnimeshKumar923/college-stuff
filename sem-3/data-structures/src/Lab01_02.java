@@ -1,6 +1,6 @@
 /*
  * Date: 2023-08-07 (YYYY-MM-DD)
- * Program: Array insertion
+ * Program: Array element insertion
  */
 
 import java.util.Scanner;
@@ -22,12 +22,10 @@ public class Lab01_02 {
             arr[i] = in.nextInt();
         }
 
-        // for (int i = 0; i < size; i++) {
-        // System.out.print(arr[i] + " ");
-        // }
-
-        System.out.println("\n");
-        System.out.println(Arrays.toString(arr));
+        // print elements
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
 
         System.out.println("Enter position to enter new element: ");
         int position = in.nextInt();
@@ -39,6 +37,9 @@ public class Lab01_02 {
         }
         arr[position - 1] = value;
 
-        System.out.println("New array = " + Arrays.toString(arr));
+        System.out.println("New array:");
+        for (int i = 0; i < size + 1; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
 }
