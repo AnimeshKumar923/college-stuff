@@ -1,3 +1,7 @@
+/*
+ * Date: 2023-08-10 (YYYY-MM-DD)
+ * Program: Array element insertion/deletion
+ */
 #include <iostream>
 using namespace std;
 
@@ -11,7 +15,7 @@ int main()
     cin >> option;
     switch (option)
     {
-    case 1:
+    case 1: // element insertion
     {
         int size;
         cout << "Enter array size: ";
@@ -32,7 +36,7 @@ int main()
         arrayInsertion(size, arr);
         break;
     }
-    case 2:
+    case 2: // element deletion
     {
         int size;
         cout << "Enter array size: ";
