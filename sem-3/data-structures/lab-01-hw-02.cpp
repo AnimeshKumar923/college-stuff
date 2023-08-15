@@ -26,25 +26,26 @@ int main()
 
     cout << "\n";
 
-    for (int i = 0; i <= size - 1; i++)
+    for (int i = 0; i < size; i++)
     {
-        int flag = 0;
-        for (int j = 0; j <= size - 1 - i; j++)
+        int swapCheck = 0;
+        for (int j = 1; j < size - i; j++)
         {
-            if (arr[j] > arr[j + 1])
+            if (arr[j] < arr[j - 1])
             {
                 int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                flag = 1;
+                arr[j] = arr[j - 1];
+                arr[j - 1] = temp;
+                swapCheck = 1;
             }
-            if (flag == 0)
+            if (swapCheck == 0)
             {
                 break;
             }
         }
     }
 
+    cout << "\n\nsorted array:";
     for (int i = 0; i < size; i++)
     {
         cout << " " << arr[i];
