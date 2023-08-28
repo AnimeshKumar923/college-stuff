@@ -1,4 +1,3 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
 using namespace std;
 
@@ -9,7 +8,7 @@ void sum(int max, int min);
 void product(int max, int min);
 
 int main() {
-    // Write C++ code here
+
     int size;
     
     cout<<"Enter array size: ";
