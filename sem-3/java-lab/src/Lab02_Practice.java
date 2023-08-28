@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class LabPractice02 {
+public class Lab02_Practice {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
