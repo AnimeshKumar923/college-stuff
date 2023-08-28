@@ -37,5 +37,9 @@ int main() {
     cout<<"\nmax element: "<<max;
     cout<<"\nmin element: "<<min;
 
+
+    cout<<"\nsum = "<<(max+min);
+    cout<<"\nproduct = "<<(max*min);
+
     return 0;
 }
