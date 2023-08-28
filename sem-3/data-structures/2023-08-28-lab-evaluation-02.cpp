@@ -1,3 +1,9 @@
+/* 
+AIM: WAP to calculate sum and product of nth smallest and largest element of array.
+DATE: 2023-08-28 (YYYY-MM-DD)
+AUTHOR: Animesh Kumar
+*/
+
 #include <iostream>
 using namespace std;
 
