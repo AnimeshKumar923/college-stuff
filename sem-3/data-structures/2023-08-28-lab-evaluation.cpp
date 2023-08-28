@@ -1,8 +1,8 @@
-
+// Online C++ compiler to run C++ program online
 #include <iostream>
 using namespace std;
 int main() {
-    
+    // Write C++ code here
     int size;
     
     cout<<"Enter array size: ";
@@ -29,13 +29,13 @@ int main() {
             max=arr[i];
         }
         
-        if(arr[i]<max){
+        if(arr[i]<min){
             min=arr[i];
         }
     }
     
-    cout<<"max element: "<<max;
-    cout<<"min element: "<<min;
+    cout<<"\nmax element: "<<max;
+    cout<<"\nmin element: "<<min;
 
     return 0;
 }
