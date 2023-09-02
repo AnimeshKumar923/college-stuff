@@ -1,4 +1,4 @@
-/*  :et's assume you are working as a schema designer at a company named Harbour in IT market. The schema should hold some information regarding employees including name, year of joining, salary and address.
+/*  Let's assume you are working as a schema designer at a company named Harbour in IT market. The schema should hold some information regarding employees including name, year of joining, salary and address.
 
 WAP in Java to implement this design.
 
@@ -15,7 +15,7 @@ public class LabEvaluation_2023_09_02 {
 
         
         while(true){
-            
+
             System.out.println("Enter 1 to input information\nEnter 2 to print default users\nEnter 0 to exit: ");
 
             int option=in.nextInt();
@@ -69,7 +69,7 @@ public class LabEvaluation_2023_09_02 {
             System.out.print("\nEnter salary: ");
             salary=in.nextInt();
             
-            System.out.print("\nEnter address: ");
+            System.out.println("\nEnter address: ");
             address=in.nextLine();
         }
 
