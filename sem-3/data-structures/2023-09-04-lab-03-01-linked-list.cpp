@@ -46,6 +46,29 @@ void disp(node* head){
     
 }
 
+void insert(node* &head, int value){
+    if(index==0){
+            insertFirst(value);
+            return;
+        }
+
+        if(index==size){
+            insertLast(value);
+            return;
+        }
+
+        Node temp=head; // i starts from one because this is already at 0th index.
+
+        for(int i=1; i<index; i++){
+            temp=temp.next;
+        }
+
+        Node node=new Node(value, temp.next);
+        temp.next=node;
+        
+        size++;
+}
+
 
 int main()
 {
