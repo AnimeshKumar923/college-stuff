@@ -26,7 +26,7 @@ public class Lab05_01 {
         void breed(String breed){
             this.breed=breed;
             
-            System.out.println("Breed of dog = ");
+            System.out.println("Breed of dog = "+this.breed);
         };
     }
 
