@@ -22,7 +22,7 @@ public class ThreadExample extends Thread{
 class QP{
     public static void main(String[] args) {
         ThreadExample x1=new ThreadExample();
-        Thread t1=new Thread();
+        Thread t1=new Thread(x1);
         System.out.println(t1.getName());
         t1.start();
     }
