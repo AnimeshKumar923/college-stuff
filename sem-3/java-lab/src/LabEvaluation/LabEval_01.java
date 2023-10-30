@@ -1,3 +1,4 @@
+package LabEvaluation;
 /*  Let's assume you are working as a schema designer at a company named Harbour in IT market. The schema should hold some information regarding employees including name, year of joining, salary and address.
 
 WAP in Java to implement this design.
@@ -7,7 +8,7 @@ WAP in Java to implement this design.
 import java.util.Scanner;
 
 
-public class LabEvaluation_2023_09_02 {
+public class LabEval_01 {
     public static void main(String[] args){
         Scanner in=new Scanner(System.in);
 
