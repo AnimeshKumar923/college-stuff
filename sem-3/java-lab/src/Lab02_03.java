@@ -19,7 +19,7 @@ class animal {
         System.out.println("Static block");
     }
 
-    animal() {
+    public animal() {
 
         System.out.println("constructor block");
     }

@@ -18,7 +18,7 @@ public class LabEval_02_Q2 {
         myCat.eat();
         myCat.meow();
 
-        // Hybrid inheritance
+        // Hybrid and hybrid inheritance
         Kitten myKitten = new Kitten();
         myKitten.play();
         
@@ -28,34 +28,35 @@ public class LabEval_02_Q2 {
 // Single inheritance
 class Animal {
     void eat() {
-        System.out.println("Animal is eating.");
+        System.out.println("\nAnimal is eating.");
     }
 }
 
 class Dog extends Animal {
+    
     void bark() {
-        System.out.println("Dog is barking.");
+        System.out.println("\nDog is barking.");
     }
 }
 
 // Multilevel inheritance
 class Puppy extends Dog {
     void play() {
-        System.out.println("Puppy is playing.");
+        System.out.println("\nPuppy is playing.");
     }
 }
 
 // Hierarchical inheritance
 class Cat extends Animal {
     void meow() {
-        System.out.println("Cat is meowing.");
+        System.out.println("\nCat is meowing.");
     }
 }
 
 // Hybrid inheritance
 class Kitten extends Cat {
     void play() {
-        System.out.println("Kitten is playing.");
+        System.out.println("\nKitten is playing.");
     }
 }
 
