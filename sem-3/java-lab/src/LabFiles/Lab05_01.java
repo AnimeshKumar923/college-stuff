@@ -1,3 +1,4 @@
+package LabFiles;
 import java.util.Scanner;
 
 

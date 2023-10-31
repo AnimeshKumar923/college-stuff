@@ -1,13 +1,13 @@
+package LabFiles;
 /*
  * Date: 2023-08-07 (YYYY-MM-DD)
- * Program: Array element insertion
+ * Program: Array element deletion
  */
 
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class Lab01_02 {
-
+public class Lab01_03 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -22,23 +22,26 @@ public class Lab01_02 {
             arr[i] = in.nextInt();
         }
 
-        // print elements
+        // for (int i = 0; i < size; i++) {
+        // System.out.print(arr[i] + " ");
+        // }
+
+        System.out.println("\n");
         for (int i = 0; i < size; i++) {
             System.out.print(arr[i] + " ");
         }
+        System.out.println("\n");
 
         System.out.println("Enter position to enter new element: ");
         int position = in.nextInt();
-        System.out.println("Enter value to insert: ");
-        int value = in.nextInt();
 
-        for (int i = size - 1; i >= position - 1; i--) {
-            arr[i + 1] = arr[i];
+        for (int i = position - 1; i < size - 1; i++) {
+            arr[i] = arr[i + 1];
         }
-        arr[position - 1] = value;
-
+        size--;
         System.out.println("New array:");
-        for (int i = 0; i < size + 1; i++) {
+        // for (int i = 0
+        for (int i = 0; i < size; i++) {
             System.out.print(arr[i] + " ");
         }
     }

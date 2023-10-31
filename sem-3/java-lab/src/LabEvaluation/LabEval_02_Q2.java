@@ -1,3 +1,5 @@
+// program supporting diff. types of inheritance in java 
+
 package LabEvaluation;
 
 public class LabEval_02_Q2 {

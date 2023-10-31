@@ -1,3 +1,4 @@
+package LabFiles;
 /*
  * Date: 2023-08-10 (YYYY-MM-DD)
  * Program: Binary Search (Static binding)
