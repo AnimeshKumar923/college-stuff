@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.43.2.2'
+}
