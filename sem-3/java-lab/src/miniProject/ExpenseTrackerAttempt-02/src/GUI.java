@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class GUI {
@@ -55,6 +57,8 @@ public class GUI {
             }
         });
 
+        // Display previously stored entries
+        displayExpenses();
         frame.setVisible(true);
     }
 
@@ -77,6 +81,15 @@ public class GUI {
         }
         expenseNameField.setText("");
         expenseAmountField.setText("");
+    }
+
+    private void displayExpenses() {
+        List<Expense> expenses = DatabaseConnection.getExpenses();
+        for (Expense expense : expenses) {
+            String name = expense.getName();
+            double amount = expense.getAmount();
+            tableModel.addRow(new Object[]{name, amount});
+        }
     }
 
     public static void main(String[] args) {
