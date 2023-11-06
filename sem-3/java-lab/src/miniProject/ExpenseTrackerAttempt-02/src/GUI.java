@@ -7,18 +7,18 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
-import java.util.ArrayList;
-
 
 public class GUI {
     private DefaultTableModel tableModel;
     private JTextField expenseNameField;
     private JTextField expenseAmountField;
+    private JButton clearDataButton;
+    private JTable existingEntriesTable;
 
     public GUI() {
         JFrame frame = new JFrame("Expense Tracker");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900, 600);
+        frame.setSize(800, 400);
 
         JPanel panel = new JPanel();
         frame.add(panel);
@@ -42,18 +42,31 @@ public class GUI {
         inputPanel.add(expenseAmountField);
 
         // Create a new JPanel for the buttons
-        JPanel buttonPanel = new JPanel();
+        JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for buttons
         JButton addButton = new JButton("Add Expense");
         buttonPanel.add(addButton);
+
+        clearDataButton = new JButton("Clear All Data");
+        buttonPanel.add(clearDataButton); // Add the clear button
 
         panel.add(inputPanel, BorderLayout.NORTH);
         panel.add(scrollPane, BorderLayout.CENTER);
         panel.add(buttonPanel, BorderLayout.SOUTH);
 
+        // Set the existingEntriesTable
+        existingEntriesTable = expenseTable;
+
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addExpense();
+            }
+        });
+
+        clearDataButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clearAllData(existingEntriesTable);
             }
         });
 
@@ -66,7 +79,6 @@ public class GUI {
         String name = expenseNameField.getText();
         String amount = expenseAmountField.getText();
         tableModel.addRow(new Object[]{name, amount});
-       
 
         // Establish a database connection
         String insertSQL = "INSERT INTO expenses (name, amount) VALUES (?, ?)";
@@ -89,6 +101,31 @@ public class GUI {
             String name = expense.getName();
             double amount = expense.getAmount();
             tableModel.addRow(new Object[]{name, amount});
+        }
+    }
+
+    private void clearAllData(JTable table) {
+        try {
+            Connection connection = DatabaseConnection.connect();
+
+            // SQL statement to delete all records from the expenses table
+            String deleteSQL = "DELETE FROM expenses";
+
+            // Create a PreparedStatement and execute the SQL statement
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);
+            preparedStatement.executeUpdate();
+
+            // Close resources
+            preparedStatement.close();
+            connection.close();
+
+            // Clear the JTable displaying existing entries
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+
+            System.out.println("All data cleared from the database.");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
