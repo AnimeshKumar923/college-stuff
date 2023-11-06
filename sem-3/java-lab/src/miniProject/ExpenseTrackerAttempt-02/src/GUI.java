@@ -18,7 +18,7 @@ public class GUI {
     public GUI() {
         JFrame frame = new JFrame("Expense Tracker");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 400);
+        frame.setSize(600, 400);
 
         JPanel panel = new JPanel();
         frame.add(panel);
@@ -41,19 +41,19 @@ public class GUI {
         inputPanel.add(new JLabel("Amount:"));
         inputPanel.add(expenseAmountField);
 
-        // Create a new JPanel for the buttons
-        JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for buttons
+
+        JPanel buttonPanel = new JPanel(new FlowLayout());
         JButton addButton = new JButton("Add Expense");
         buttonPanel.add(addButton);
 
         clearDataButton = new JButton("Clear All Data");
-        buttonPanel.add(clearDataButton); // Add the clear button
+        buttonPanel.add(clearDataButton); 
 
         panel.add(inputPanel, BorderLayout.NORTH);
         panel.add(scrollPane, BorderLayout.CENTER);
         panel.add(buttonPanel, BorderLayout.SOUTH);
 
-        // Set the existingEntriesTable
+
         existingEntriesTable = expenseTable;
 
         addButton.addActionListener(new ActionListener() {
@@ -70,7 +70,7 @@ public class GUI {
             }
         });
 
-        // Display previously stored entries
+
         displayExpenses();
         frame.setVisible(true);
     }
@@ -80,14 +80,14 @@ public class GUI {
         String amount = expenseAmountField.getText();
         tableModel.addRow(new Object[]{name, amount});
 
-        // Establish a database connection
+        // database connection
         String insertSQL = "INSERT INTO expenses (name, amount) VALUES (?, ?)";
         
-        try (Connection connection = DatabaseConnection.connect(); PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
-            // Add code to insert the data into the database here
-            preparedStatement.setString(1, name);
-            preparedStatement.setDouble(2, Double.parseDouble(amount));
-            preparedStatement.executeUpdate();
+        try (Connection connection = DatabaseConnection.connect(); PreparedStatement ps = connection.prepareStatement(insertSQL)) {
+
+            ps.setString(1, name);
+            ps.setDouble(2, Double.parseDouble(amount));
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -108,15 +108,14 @@ public class GUI {
         try {
             Connection connection = DatabaseConnection.connect();
 
-            // SQL statement to delete all records from the expenses table
             String deleteSQL = "DELETE FROM expenses";
 
-            // Create a PreparedStatement and execute the SQL statement
-            PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL);
-            preparedStatement.executeUpdate();
+ 
+            PreparedStatement ps = connection.prepareStatement(deleteSQL);
+            ps.executeUpdate();
 
             // Close resources
-            preparedStatement.close();
+            ps.close();
             connection.close();
 
             // Clear the JTable displaying existing entries
