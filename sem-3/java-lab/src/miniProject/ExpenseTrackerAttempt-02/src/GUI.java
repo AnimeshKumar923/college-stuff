@@ -13,7 +13,7 @@ public class GUI {
     private JTextField expenseNameField;
     private JTextField expenseAmountField;
     private JButton clearDataButton;
-    private JTable existingEntriesTable;
+    // private JTable existingEntriesTable;
 
     public GUI() {
         JFrame frame = new JFrame("Expense Tracker");
@@ -54,7 +54,6 @@ public class GUI {
         panel.add(buttonPanel, BorderLayout.SOUTH);
 
 
-        existingEntriesTable = expenseTable;
 
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -66,7 +65,7 @@ public class GUI {
         clearDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clearAllData(existingEntriesTable);
+                clearAllData(expenseTable);
             }
         });
 
@@ -114,11 +113,11 @@ public class GUI {
             PreparedStatement ps = connection.prepareStatement(deleteSQL);
             ps.executeUpdate();
 
-            // Close resources
+           
             ps.close();
             connection.close();
 
-            // Clear the JTable displaying existing entries
+            
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.setRowCount(0);
 

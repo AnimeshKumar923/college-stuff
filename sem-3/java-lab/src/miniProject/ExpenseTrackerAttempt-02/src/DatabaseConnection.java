@@ -10,13 +10,13 @@ public class DatabaseConnection {
     public static Connection connect() {
         Connection connection = null;
         try {
-            // Load the SQLite JDBC driver
+            // SQLite JDBC driver
             Class.forName("org.sqlite.JDBC");
 
-            // Database URL. Change this to your database location.
+          
             String url = "jdbc:sqlite:src/expenses.db";
 
-            // Create a connection to the database
+            // connection to the database
             connection = DriverManager.getConnection(url);
             System.out.println("Connected to the SQLite database.");
         } catch (ClassNotFoundException | SQLException e) {
