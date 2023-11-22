@@ -1,12 +1,13 @@
 package AWT;
 
 import java.awt.*;
+import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
-        Frame frame=new Frame();
+        Frame f=new Frame();
 
-        frame.setSize(400,400);
-        frame.setLayout(null);
-        frame.setVisible(true);
+        f.setSize(900,600);
+        f.setLayout(null);
+        f.setVisible(true);
     }
 }
