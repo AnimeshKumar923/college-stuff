@@ -11,9 +11,6 @@ public class FinalEval_Q2 {
             this.a=a;
             this.b=b;
         }
-
-       
-
     }
 
 
@@ -37,7 +34,7 @@ public class FinalEval_Q2 {
  
         }
          
-        catch(IOException ex)
+        catch(IOException e)
         {
             System.out.println("IOException is caught");
         }
@@ -58,7 +55,7 @@ public class FinalEval_Q2 {
             System.out.println("b = " + x2.b);
         }
          
-        catch(IOException ex)
+        catch(IOException e)
         {
             System.out.println("IOException is caught");
         }
