@@ -9,14 +9,14 @@ from scipy import integrate
 
 # dy/dt = f(t,y)
 
-def f(t, r):
-    x, y = r
-    fx = np.cos(y)
-    fy = np.sin(x)
-    return fx, fy;
+def f(t, y):
+    y = 1
+    # fy = np.cos(y)
+    fy = np.sin(y)
+    return fy;
 
-rs = integrate.solve_ivp(f, (0, 10), (1, 1), t_eval=np.linspace(0, 10, 100))
-x, y = rs.y
-
-plt.plot(x, y)
+rs = integrate.solve_ivp(f, (0, 10), y0=fy ,t_eval=np.linspace(0, 10, 100))
+y = rs.y
+#x=np.linspace(2,10,100)
+plt.plot(y)
 plt.show()
