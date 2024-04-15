@@ -1,0 +1,3 @@
+1. create a procedure named `add_product` to add a new product to the product's table in the database. The procedure should accept parameters such as: product_name, price, quantity and category.
+
+2. create a trigger named `update_order_status` to automatically update the status of an order in the order's table when a corresponding entry is inserted into the `order_details` table.
