@@ -1,4 +1,4 @@
-// analyze if the stack is empty or full and if elements are present return the top element in the stack using templates. Also perform push and pop operation on the stack
+// analyze if the stack is empty or full and if elements are present return the top element in the stack. Also perform push and pop operation on the stack
 
 class Stack {
   constructor(maxSize) {
@@ -39,9 +39,9 @@ class Stack {
 try {
   const myStack = new Stack(5);
   
-  // myStack.push(1);
-  // myStack.push(2);
-  // myStack.push(3);
+  myStack.push(1);
+  myStack.push(2);
+  myStack.push(3);
 
   console.log("Stack is empty:", myStack.isEmpty());
   console.log("Stack is full:", myStack.isFull());
@@ -53,4 +53,3 @@ try {
 } catch (e) {
   console.error(e.message);
 }
-k
