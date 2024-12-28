@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Annotation Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Audio Annotation Tool</h1>
+  <div class="controls">
+    <input type="file" id="audioFile" accept="audio/*">
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="transcribe">Transcribe Audio</button>
+  </div>
+  <div id="waveform"></div>
+  <div class="annotations">
+    <h3>Annotations</h3>
+    <ul id="annotationList"></ul>
+    <button id="export">Export Annotations</button>
+  </div>
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
