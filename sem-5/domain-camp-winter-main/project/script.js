@@ -69,26 +69,29 @@ exportButton.addEventListener('click', () => {
 
 // Transcription Feature (Web Speech API)
 transcribeButton.addEventListener('click', () => {
-  if ('webkitSpeechRecognition' in window) {
-    const recognition = new webkitSpeechRecognition();
-    recognition.interimResults = true;
-    recognition.lang = 'en-US';
+  const audioFile = document.getElementById('audioFile').files[0];
 
-    recognition.onresult = (event) => {
-      const transcript = Array.from(event.results)
-        .map((result) => result[0].transcript)
-        .join('');
+  if (!audioFile) {
+    alert('Please upload an audio file first.');
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('audioFile', audioFile);
+
+  fetch('http://localhost:3000/transcribe', {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => response.json())
+    .then(data => {
+      const transcript = data.transcription;
       const li = document.createElement('li');
       li.textContent = `Transcription: ${transcript}`;
       annotationList.appendChild(li);
-    };
-
-    recognition.onerror = (event) => {
-      alert(`Error occurred in recognition: ${event.error}`);
-    };
-
-    recognition.start();
-  } else {
-    alert('Speech recognition is not supported in this browser.');
-  }
+    })
+    .catch(err => {
+      console.error('Error during transcription:', err);
+      alert('Error occurred during transcription');
+    });
 });
