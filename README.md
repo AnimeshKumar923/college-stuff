@@ -13,3 +13,5 @@ This repo contains some stuffs related to my college
 - Sem-4 started on 10-01-2024
 - Sem-4 ended on 25-05-2024
 - Sem-5 started on 16-07-2024
+- Sem-5 ended on 07-12-2024
+- Sem-6 started on 07-01-2025
